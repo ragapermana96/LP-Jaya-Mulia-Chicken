@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "product": {
+      "title": "Product",
+      "description": "Products available for sale",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "discountPrice": { "type": "number" },
+        "bulkPrice": { "type": "number" },
+        "bulkQuantity": { "type": "number" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["name", "category", "price", "imageUrl"]
+    },
+    "admin": {
+      "title": "Admin",
+      "description": "Authorized administrators",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" }
+      },
+      "required": ["uid"]
+    }
+  },
+  "firestore": {
+    "products/{productId}": {
+      "schema": { "$ref": "product" },
+      "description": "Product document"
+    },
+    "admins/{uid}": {
+      "schema": { "$ref": "admin" },
+      "description": "Admin document"
+    }
+  }
+}
